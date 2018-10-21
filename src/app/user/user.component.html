@@ -1,0 +1,70 @@
+<nav>
+  <a routerLink="/user-list">users</a>
+</nav>
+
+
+
+
+
+
+<form class="form-horizontal" id="form-sample-1" method="post" novalidate="novalidate">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Name</label>
+        <div class="col-sm-9">
+          <input class="form-control" [(ngModel)]="user.name" type="text" name="fname">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Email</label>
+        <div class="col-sm-9">
+          <input class="form-control" [(ngModel)]="user.email" type="text" name="lname">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-sm-3 col-form-label">Contact</label>
+        <div class="col-sm-9">
+          <input class="form-control" [(ngModel)]="user.contact" type="text" name="code">
+        </div>
+      </div>
+
+          
+    </div>
+
+    
+ 
+  
+  <button class="btn btn-primary btn-fix button_center" (click)="addFieldValue(user)">Submit</button>
+  </div>
+</form>
+
+
+
+
+
+
+
+<table id="datatable" style="width:95%">
+  <thead >
+    <tr>
+      <th>SNo</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th class="no-sort"></th>
+      <th class="no-sort"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let field of fieldArray; let i = index" >
+      <td>{{i + 1}}</td>
+      <td>{{field.name}}</td>
+      <td>{{field.email}}</td>
+      <td>{{field.contact}}</td>
+      
+      <td><a class="text-muted font-16" href="javascript:;" data-container="body" data-toggle="popover" data-trigger="hover"
+          data-placement="top" data-content="Delete" (click)="deleteFieldValue(i)"><i class="ti-trash">delete</i></a></td> 
+    </tr>
+  </tbody>
+</table>
